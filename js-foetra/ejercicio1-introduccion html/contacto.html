@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de contacto</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+    <script src="https://kit.fontawesome.com/9628a69ed9.js" crossorigin="anonymous"></script>
+    <script src="./javascript/gral.js"></script>
+    <script src="./javascript/controlFormulario.js"></script>
+    <style>
+        /* img{
+            height: 150px;
+            width: 150px;
+        } */
+    </style>
+</head>
+<body>
+    
+    <!-- <img id="bannerimage" src="imagenes/logo-g022491643_1920.png" alt="banner montaña - esto no debería verse 
+    a menos que sea ciego o se rompio la imagen"> -->
+    <div id="bannerimage"></div>
+
+    <nav>
+        <a href="./index.html" target="_get" class="linkNav">inicio cv</a>
+        <a href="https://github.com/menchaca-brian" target="_blank" class="linkNav">mi porfolio</a>
+    </nav>
+
+    <form action="contacto.html" method="get">
+        <label for="nombre" style="margin: 0 150 0 0;">
+            Nombre : 
+            <input type="text" name="nombre" id="nombre" class="camposFormularios campoEnRojo" onblur="validateFormContacto()">
+        </label>
+        <label for="telefono">
+            telefono : 
+            <input type="tel" name="telefono" id="telefono" class="camposFormularios" onblur="validateFormContactoTelefono()">
+        </label>
+        <label for="correo">
+            correo : 
+            <input type="email" name="correo" id="correo" class="camposFormularios" onblur="validateFormContactoEmail()">
+        </label>
+        <label for="campo">
+            campo libre : 
+            <textarea name="campo" id="campo" cols="30" rows="10" class="camposFormularios" onblur="validateFormContactoCampo()"></textarea>
+        </label>
+
+        <button type="submit" id="botonSubmit" class="botonSubmit">enviar</button>
+    </form>
+    <br>
+
+    <footer>
+        <ul class="itemFooter">
+            <li><b>Contactanos</b> </li>
+            <li><i class="fa-solid fa-phone icono"></i></i><b>Tel: </b>11 4969-0281</li>
+            <li><i class="fa-brands fa-whatsapp icono"></i><b>WhatsApp: </b>11 4969-0281</li>
+            <li><i class="fa-solid fa-envelope icono"></i><b>Email: </b>brianmenchaca@gmail.com</li>
+            <li><i class="fa-solid fa-location-dot icono"></i><b>Dirección: </b>Florencio Varela 1903, San Justo, Provincia de Buenos Aires</li>
+        </ul>
+        <iframe class="itemFooter" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.227543528922!2d-58.56563299333852!3d-34.670631511199495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc62cc3ef7083%3A0x8867107f425fade5!2sUniversidad%20Nacional%20de%20La%20Matanza!5e0!3m2!1ses-419!2sar!4v1648052676141!5m2!1ses-419!2sar" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </footer>
+    
+</body>
+</html>
