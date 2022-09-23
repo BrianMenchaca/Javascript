@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluador de complejidad ciclomatica</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/main.js"></script>
+
+    <!-- BOOTSTRAP -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;400&display=swap" rel="stylesheet">
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body id="background">
+    <div id="title-area">
+        <h1 id="title">
+            Complejidad Ciclomatica
+        </h1>
+        <h2 id="subtitle">
+            Comprueba la complejidad ciclomatica de tu programa
+        </h2>
+    </div>
+    <div id="uploader">
+        <form name="formulario" method="get" action="index.html" enctype="multipart/form-data">
+            <!-- ¡No olvides el enctype! -->
+            <!-- Campo de selección de archivo -->
+            <div class="file-select" id="src-file1">
+                <input type="file" name="src-file1" id="archivo" aria-label="Archivo">
+            </div>
+            <input type="submit" class="btn btn-primary enviar" value="Evaluar">
+            <!-- <input type="file" id="archivo" accept=".java" /> -->
+        </form>
+    </div>
+    <div id="result-area">
+        <div id="result-title">
+            La complejidad ciclomatica es:
+        </div>
+        <div id="result-value">
+            10
+        </div>
+    </div>
+    <div id="team" class="rounded fixed-bottom ">
+        <b id="team-title">Integrantes del Grupo:</b>
+        <ul id="team-list">
+            <li>Menchaca, Brian Angel Gastón</li>
+            <li>Integrante 2</li>
+            <li>Integrante 3</li>
+            <li>Integrante 4</li>
+            <li>Integrante 5</li>
+            <li>Integrante 6</li>
+        </ul>
+    </div>
+
+    <script>
+        $("#archivo").on("change", function () {
+            var archivo = $(this)[0].files[0];
+            var fileReader = new FileReader();
+            fileReader.readAsBinaryString(archivo);
+            fileReader.onload = function() {
+                console.log(fileReader.result[0]);
+            };
+
+
+        });
+    </script>
+</body>
+
+</html>
