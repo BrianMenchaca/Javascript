@@ -36,6 +36,8 @@
             Comprueba la complejidad ciclomatica de tu programa
         </h2>
     </div>
+
+
     <div id="uploader">
         <form name="formulario" method="get" action="index.html" enctype="multipart/form-data">
             <!-- ¡No olvides el enctype! -->
@@ -47,14 +49,18 @@
             <!-- <input type="file" id="archivo" accept=".java" /> -->
         </form>
     </div>
+
+     
     <div id="result-area">
-        <div id="result-title">
-            La complejidad ciclomatica es:
-        </div>
-        <div id="result-value">
-            10
-        </div>
+        <h4 id="result-title">Las lineas Totales son: <b id="lineastotales">0</b></h4>
+        <h4 id="result-title">Las lineas de Codigo son: <b id="lineascodigo"> 0</b></h4>
+        <h4 id="result-title">Las lineas de Codigo Comentadas son: <b id="lineascomentadas">0</b></h4>
+        <h4 id="result-title">El porcentaje de lineas comentadas es: <b id="lineasporcentaje">0</b></h4>
+        <h4 id="result-title">Halstead Longitud: <b id="longitud">0</b></h4>
+        <h4 id="result-title">La Complejidad Ciclomatica es: <b id="complejidad">0</b></h4>
     </div>
+
+
     <div id="team" class="rounded fixed-bottom ">
         <b id="team-title">Integrantes del Grupo:</b>
         <ul id="team-list">
@@ -67,16 +73,16 @@
         </ul>
     </div>
 
+
     <script>
         $("#archivo").on("change", function () {
             var archivo = $(this)[0].files[0];
             var fileReader = new FileReader();
             fileReader.readAsBinaryString(archivo);
             fileReader.onload = function() {
-                console.log(fileReader.result);
+                mostrarMetricas(fileReader.result);
+                // document.getElementById("result-value").textContent = c;
             };
-
-
         });
     </script>
 </body>
