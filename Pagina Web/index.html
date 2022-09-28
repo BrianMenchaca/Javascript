@@ -40,17 +40,13 @@
 
     <div id="uploader">
         <form name="formulario" method="get" action="index.html" enctype="multipart/form-data">
-            <!-- ¡No olvides el enctype! -->
-            <!-- Campo de selección de archivo -->
             <div class="file-select" id="src-file1">
-                <input type="file" name="src-file1" id="archivo" aria-label="Archivo">
+                <input type="file" name="src-file1" id="archivo" accept=".java" aria-label="Archivo">
             </div>
-            <input type="submit" class="btn btn-primary enviar" value="Evaluar">
-            <!-- <input type="file" id="archivo" accept=".java" /> -->
+            <input id="btnSubmit" type="button" class="btn btn-primary enviar" value="Evaluar">
         </form>
     </div>
 
-     
     <div id="result-area">
         <h4 id="result-title">Las lineas Totales son: <b id="lineastotales">0</b></h4>
         <h4 id="result-title">Las lineas de Codigo son: <b id="lineascodigo"> 0</b></h4>
@@ -58,6 +54,11 @@
         <h4 id="result-title">El porcentaje de lineas comentadas es: <b id="lineasporcentaje">0</b></h4>
         <h4 id="result-title">Halstead Longitud: <b id="longitud">0</b></h4>
         <h4 id="result-title">La Complejidad Ciclomatica es: <b id="complejidad">0</b></h4>
+        <h4 id="result-title">El volumen Halstead es: <b id="volumen">0</b></h4>
+        <h4 id="result-title">Escriba el nombre de función a buscar fan-in y fan-out: </h4>
+        <input id="funcion" placeholder="Escriba el nombre de la función" type="text">
+        <h4 id="result-title">Fan-in: <b id="fanIn">0</b></h4>
+        <h4 id="result-title">Fan-out: <b id="fanOut">0</b></h4>
     </div>
 
 
@@ -75,14 +76,18 @@
 
 
     <script>
-        $("#archivo").on("change", function () {
-            var archivo = $(this)[0].files[0];
-            var fileReader = new FileReader();
-            fileReader.readAsBinaryString(archivo);
-            fileReader.onload = function() {
-                mostrarMetricas(fileReader.result);
-                // document.getElementById("result-value").textContent = c;
-            };
+        const fileSelector = document.getElementById('archivo');
+        fileSelector.addEventListener('change', (event) => {
+            const fileList = event.target.files;
+
+            document.getElementById("btnSubmit").addEventListener("click", () => {
+                const file = fileList[0];
+                    var fileReader = new FileReader();
+                    fileReader.readAsBinaryString(file);
+                    fileReader.onload = function () {
+                        miModulo.nuevoArchivo(fileReader.result)
+                    }
+            })
         });
     </script>
 </body>
